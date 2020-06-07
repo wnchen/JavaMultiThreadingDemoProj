@@ -42,7 +42,7 @@ public class ThreadSafetyWithImmutableData {
 
     private void increaseCounterBy5000() {
         for (int i = 0; i < SUM; i++) {
-            int updatedVal = immutableCounter.getCounter() - 1;
+            int updatedVal = immutableCounter.getCounter() + 1;
             ImmutableCounter newImmutableCounter = new ImmutableCounter(updatedVal);
         }
     }

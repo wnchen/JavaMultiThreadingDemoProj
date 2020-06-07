@@ -12,7 +12,15 @@ public class ImmutableCounter {
         return counter;
     }
 
-    // because counter is defined as final variable, can not modify it
+//    public int setCounter(int counter) {
+//        this.counter = counter;
+//    }
+
+//    public void setCounter(int counter) {
+//        this.counter = counter;
+//    }
+//
+//    // because counter is defined as final variable, can not modify it
 //    public void addCounter() {
 //        counter++;
 //    }

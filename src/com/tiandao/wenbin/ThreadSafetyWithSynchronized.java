@@ -1,8 +1,10 @@
 package com.tiandao.wenbin;
 
+import java.util.concurrent.locks.Lock;
+
 public class ThreadSafetyWithSynchronized {
     private int counter = 0;
-    private static final int SUM = 5000;
+    private static final int SUM = 10;
 
     public static void main(String[] args) {
         ThreadSafetyWithSynchronized threadSafetyWithSynchronized = new ThreadSafetyWithSynchronized();
@@ -32,6 +34,7 @@ public class ThreadSafetyWithSynchronized {
 
     private synchronized void decreaseCounterBy5000() {
         for (int i = 0; i < SUM; i++) {
+            System.out.println("doing work: " + Thread.currentThread().getName());
             counter--;
         }
     }

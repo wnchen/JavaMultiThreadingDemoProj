@@ -5,7 +5,7 @@ public class JavaThreadName {
     public static void main(String[] args) {
         System.out.println("test main thread name: " + Thread.currentThread().getName());
         System.out.println("Starting a new thread");
-        Thread newThread = new Thread() {
+        Thread newThread = new Thread("testMain") {
             @Override
             public void run() {
                 try {
