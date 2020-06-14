@@ -4,10 +4,12 @@ import java.util.concurrent.locks.Lock;
 
 public class ThreadSafetyWithSynchronized {
     private int counter = 0;
-    private static final int SUM = 10;
+    private static final int SUM = 5000;
+    Object lock = new Object();
 
     public static void main(String[] args) {
         ThreadSafetyWithSynchronized threadSafetyWithSynchronized = new ThreadSafetyWithSynchronized();
+
         System.out.println("counter init value: " + threadSafetyWithSynchronized.counter);
         Thread t1 = new Thread(new Runnable() {
             @Override
@@ -32,16 +34,20 @@ public class ThreadSafetyWithSynchronized {
         System.out.println("counter final value: " + threadSafetyWithSynchronized.counter);
     }
 
-    private synchronized void decreaseCounterBy5000() {
-        for (int i = 0; i < SUM; i++) {
-            System.out.println("doing work: " + Thread.currentThread().getName());
-            counter--;
+    private void decreaseCounterBy5000() {
+        synchronized (lock) {
+            for (int i = 0; i < SUM; i++) {
+//            System.out.println("doing work: " + Thread.currentThread().getName());
+                counter--;
+            }
         }
     }
 
     private synchronized void increaseCounterBy5000() {
-        for (int i = 0; i < SUM; i++) {
-            counter++;
+        synchronized (lock) {
+            for (int i = 0; i < SUM; i++) {
+                counter++;
+            }
         }
     }
 

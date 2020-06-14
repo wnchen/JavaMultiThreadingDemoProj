@@ -21,5 +21,13 @@ public class Person implements Runnable {
         chopstick2.getChopstick();
         System.out.println("person " + name + " got chop " + chopstick2.name + " success");
         System.out.println("person " + name + " start eating food");
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        chopstick1.releaseChopstick();
+        chopstick2.releaseChopstick();
     }
 }

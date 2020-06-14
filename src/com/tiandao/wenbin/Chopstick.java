@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Chopstick {
 
     final String name;
-    private Lock lock = new ReentrantLock();
+    Lock lock = new ReentrantLock();
 
     Chopstick(String name) {
         this.name = name;
